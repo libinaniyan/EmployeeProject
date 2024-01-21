@@ -1,0 +1,18 @@
+﻿Used Codefirst approach of the EF
+Database Name :Employees
+Table name :Employee Login
+
+
+* Added login with required fileds 
+* If valid user , will be getting a welcome note for successfull login
+* If login pass , user will get the Employee Details page with user details and option for editing 
+* If login fails , will get a notification error message on view
+
+# User can register as new user from login page itself 
+# will land on Employee Details page with user details and option for editing
+# user image will stored in wwwroot folder and corresponding image path is added in database
+
+@ User can edit the details basis on his id
+@ During update the existing image available will be deleted from static files and add new image
+
+$ Added list in the login page for getting an averall view of employee list

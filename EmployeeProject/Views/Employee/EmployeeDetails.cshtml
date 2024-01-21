@@ -1,0 +1,44 @@
+﻿@model EmployeeProject.Models.EmployeeModel
+
+@{
+    ViewData["Title"] = "EmployeeDetails";
+}
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<div>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th scope="row">User Name</th>
+                <th scope="row">Password</th>
+                <th scope="row">Date of Birth</th>
+                <th scope="row">Image</th>
+                <th scope="row">Edit Details</th>
+            </tr>
+            <tr>
+                <td>@Html.DisplayFor(model => model.UserName)</td>
+                <td>@Html.DisplayFor(model => model.Password)</td>
+                <td>@Html.DisplayFor(model => model.DateOfBirth)</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(Model.ImagePath))
+                    {
+                        <img src="~/@Model.ImagePath" class="detailImage" width="150" height="150" />
+                    }
+                    else
+                    {
+                        <span>No image available</span>
+                    }
+                </td>
+                <td class="align-items-center">
+                    @Html.ActionLink("Edit", "EditDetails", new { id = Model.Id }) 
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

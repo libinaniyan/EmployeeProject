@@ -1,0 +1,41 @@
+﻿@model IEnumerable<EmployeeProject.Models.EmployeeModel>
+
+@{
+    ViewData["Title"] = "List";
+}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="row">User Name</th>
+            <th scope="row">Password</th>
+            <th scope="row">Date of Birth</th>
+            <th scope="row">Image</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) 
+    {
+        <tr>  
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                    @if (!string.IsNullOrEmpty(item.ImagePath))
+                    {
+                        <img src="~/@item.ImagePath" class="detailImage" width="150" height="150" />
+                    }
+                    else
+                    {
+                        <span>No image available</span>
+                    }
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
